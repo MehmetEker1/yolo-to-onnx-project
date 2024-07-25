@@ -1,4 +1,30 @@
-1. ilk olarak pip install torch torchvision onnx komutunu bash'e yazarak gerekli paketleri kurdum
-2. sonrasında YOLOv5 modelini pytorch aracılığıyla resmi github deposundan mevcut dosyaya indirdim
-3. indirdikten sonra torch.onnx.export fonksiyonunu kullanarak modeli onnx(Open Neural Network Exchange)formatına dönüştürdüm
-4. onnx modelini onnx.load kullanarak yükledim ve sonrasında doğruladım
+1. Kullandığım Araçlar:
+* PyTorch: PyTorch'u YOLOv5 modelini yüklemek için ve ONNX formatına dönüştürmek için kullandığım derin öğrenme kütüphanesi.
+* ONNX: ONNX frameworkünü, Modeli açık bir formatta saklamak için kullandım.
+* ONNX Runtime: ONNX modeline tahmin yaptırmak için kullandığım çalışma zamanı sistemidir.
+* NumPy: ONNX Runtime NumPy dizileriyle çalışır dolayısıyla dummy_input.numpy() fonksiyonu için gereklidir.
+
+2. Kullandığım Komutlar:
+* torch.hub.load: Bu fonksiyon Ultralytics'e ait YOLOv5m modelini indirmek ve model adlı değişkene atamak için kullandığım komut.
+* model.eval: Modelin eğitirken bazı özellikleri devre dışı bırakmak için kullandığım bir komut.
+* torch.randn: Bu komutu, modelin giriş boyutlarına uygun olarak random bir tensor oluşturmak için kullandım.
+* torch.onnx.export: PyTorch modelini ONNX formatına dönüştürmeyi sağlayan komut.
+* onnx.load: ONNX model dosyasını yüklemek için kullandığım fonksiyon.
+* onnx.chechker.check_model: Modelin geçerli ve hatasız olduğunu doğrulamayı sağlar.
+* ort.InferenceSession: ONNX Runtime ile oturum oluşturur.
+* ort_session.run: verdiğim girdi verisiyle tahminler yapmaya çalışır.
+
+ONNX Kullanmanın Faydaları:
+ONNX(Open Neural Network Exchange), farklı platformlar ve donanımlar arasında makine öğrenme modellerini taşımayı kolaylaştırır.
+
+Taşınabilirlik Olarak: 
+ONNX, Modellerin bir platformdan başka bir platforma rahatça taşınmasını sağlar. 
+Bu bizlere, farklı yazılım ve donanımlarla çalışırken büyük bir esneklik sağlar.
+
+Performans Olarak:
+ONNX'in performans açısından da çok avantajları mevcuttur.
+ONNX Runtime vb. araçlar modellerin hızlı ve verimli şekilde çalıştırmak için optimize edilmiş olup bu
+ modellerin daha hızlı tahmin yeteneği vardır ve bununla birlikte daha düşük maliyetlidir.
+ONNX'in sunduğu yüksek performans, farklı platformlar arasında optimize şekilde çalışır. Bu da demek oluyor ki 
+farklı donanım ve yazılım ortamlarında performans kaybı en düşüktür.
+  
