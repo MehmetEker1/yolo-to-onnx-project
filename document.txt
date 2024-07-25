@@ -1,0 +1,28 @@
+	1.	Tools I Used:
+
+	•	PyTorch: The deep learning library I used to load the YOLOv5 model and convert it to ONNX format.
+	•	ONNX: I used the ONNX framework to store the model in an open format.
+	•	ONNX Runtime: The runtime system I used to make predictions with the ONNX model.
+	•	NumPy: ONNX Runtime works with NumPy arrays, so it is necessary for the dummy_input.numpy() function.
+
+	2.	Commands I Used:
+
+	•	torch.hub.load: This function is used to download the YOLOv5m model from Ultralytics and assign it to the variable named model.
+	•	model.eval: A command I used to disable certain features while training the model.
+	•	torch.randn: I used this command to create a random tensor suitable for the model’s input dimensions.
+	•	torch.onnx.export: The command that converts the PyTorch model to ONNX format.
+	•	onnx.load: The function I used to load the ONNX model file.
+	•	onnx.checker.check_model: Ensures that the model is valid and error-free.
+	•	ort.InferenceSession: Creates a session with ONNX Runtime.
+	•	ort_session.run: Attempts to make predictions with the input data provided.
+
+Benefits of Using ONNX:
+ONNX (Open Neural Network Exchange) makes it easier to transfer machine learning models between different platforms and hardware.
+
+Portability:
+ONNX allows models to be easily transferred from one platform to another. This provides us with great flexibility when working with different software and hardware.
+
+Performance:
+ONNX also offers significant performance advantages. Tools like ONNX Runtime are optimized to run models quickly and efficiently, 
+which means these models have faster prediction capabilities and are more cost-effective. The high performance provided by ONNX ensures 
+optimized operation across different platforms. This means minimal performance loss in various hardware and software environments.
