@@ -1,0 +1,4 @@
+1. ilk olarak pip install torch torchvision onnx komutunu bash'e yazarak gerekli paketleri kurdum
+2. sonrasında YOLOv5 modelini pytorch aracılığıyla resmi github deposundan mevcut dosyaya indirdim
+3. indirdikten sonra torch.onnx.export fonksiyonunu kullanarak modeli onnx(Open Neural Network Exchange)formatına dönüştürdüm
+4. onnx modelini onnx.load kullanarak yükledim ve sonrasında doğruladım
